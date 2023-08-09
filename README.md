@@ -11,3 +11,11 @@ This repository is for internship team 1
 3. We'll set up our environment in these two days, and spend a week learning about VUE2 and mock.js as well as start coding from week 3.<br>
 
 <h3> The above is only the initial plan and it could be changed when we are pushing the whole process </h3><br>
+
+Install webpack   npm install -g webpack webpack-cli 
+Install Vue Cli   npm install -g @vue/cli
+Install router(Vue2)  npm install --save vue-router
+Install router(Vue3)  npm install --save vue-router@4
+Install axios  npm install --save axios
+Install querystring  npm install --save query-string
+Install element-ui  npm install --save element-plus
