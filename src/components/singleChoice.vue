@@ -2,6 +2,7 @@
   <div>
     <div class="container">
       <div class="question">ques:{{ question }}</div>
+      <div class="left">Question {{ index }}</div>
       <div class="top">Select One:</div>
       <div class="option">
         <el-radio-group v-model="radio">
@@ -25,8 +26,8 @@
 
 <script>
 export default {
-  name: "RadioSelect",
-  props: ["question", "aOption", "bOption", "cOption", "dOption"],
+  name: "SingleChoice",
+  props: ["title", "aOption", "bOption", "cOption", "dOption","index"],
   data() {
     return {
       radio: 0,
@@ -43,6 +44,15 @@ export default {
   background-color: #bee5eb;
   text-align: left;
   padding: 20px;
+  position: relative;
+  .left {
+    position: absolute;
+    left: -100px;
+    top: 0;
+    background-color: #f8f9fa;
+    border: 1px solid #cad0d7;
+    padding: 8px;
+  }
   .question {
     font-weight: bolder;
     color: #052025;
