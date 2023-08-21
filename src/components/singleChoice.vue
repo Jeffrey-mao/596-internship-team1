@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container" :id="`nav${index}`">
       <div class="question">ques:{{ question }}</div>
       <div class="left">Question {{ index }}</div>
       <div class="top">Select One:</div>
       <div class="option">
-        <el-radio-group v-model="radio">
+        <el-radio-group v-model="radio" @input="onInput">
           <div>
             <el-radio label="a">a. {{ aOption }}</el-radio>
           </div>
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
   name: "SingleChoice",
   props: ["title", "aOption", "bOption", "cOption", "dOption","index"],
@@ -33,14 +35,22 @@ export default {
       radio: 0,
     };
   },
+  methods: {
+    onInput(value) {
+      console.log(this.title,'title');
+      console.log(moment().format('YYYY-MM-DD HH:mm'), "time");
+      console.log(value, "option");
+      console.log('input event');
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
 .container {
-  margin: 0 auto;
+  margin-left: 100px;
   border: 1px solid black;
-  width: 50%;
+  width: 60%;
   background-color: #bee5eb;
   text-align: left;
   padding: 20px;

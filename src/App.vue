@@ -1,5 +1,15 @@
 <template>
-  <div id="app">
+    <div id="app" @scroll="onScroll">
+      <div class="rightCon">
+        <div class="title">Quiz navigation</div>
+        <div class="right">
+          <Nav
+              v-for="item in quesList"
+              :key="item.id"
+              :index="item.id"
+          ></Nav>
+        </div>
+      </div>
     <el-form ref="form" :model="form" label-width="80px">
       <div class="section">
         Section A: Single Choice—choose the best answer (2 marks each)
@@ -35,6 +45,8 @@ import SingleChoice from "@/components/singleChoice.vue";
 import ShortQuestion from "@/components/shortQuestion.vue";
 import Nav from "@/components/nav.vue";
 import ques from "./mock/ques.json";
+import moment from 'moment';
+
 
 export default {
   name: "App",
@@ -58,6 +70,12 @@ export default {
     //   this.quesList = v.data;
     // });
   },
+  methods: {
+    onScroll() {
+      console.log(moment().format('YYYY-MM-DD HH:mm'),'time');
+      console.log("scroll event");
+    },
+  },
 };
 </script>
 
@@ -66,13 +84,31 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  position: relative;
+  .rightCon {
+    position: absolute;
+    z-index: 1000;
+    border: 1px black solid;
+    right: 50px;
+    width: 325px;
+    height: 230px;
+    padding: 16px;
+    .title {
+      font-size: 16px;
+      font-weight: bolder;
+      margin-bottom: 10px;
+    }
+    .right {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
   .section {
-    margin: 0 auto;
+    margin-left: 177px;
     border: 1px solid black;
-    width: 720px;
+    width: 867px;
     background-color: #bee5eb;
     text-align: left;
     padding: 20px;
@@ -80,7 +116,7 @@ export default {
     font-size: 16px;
     font-weight: bolder;
     position: relative;
-    margin-left:28%;
+    margin-left:421px;
     .left {
       position: absolute;
       left: -100px;

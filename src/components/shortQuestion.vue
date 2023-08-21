@@ -1,10 +1,11 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container" :id="`nav${index}`">
       <div class="left">Question {{ index }}</div>
       <div class="question">ques:{{ title }}</div>
       <div class="input">
         <el-input
+            @input="onInput()"
             type="textarea"
             autosize
             label="Answer:"
@@ -18,22 +19,32 @@
 </template>
 
 <script>
+import moment from "moment";
+
 export default {
   name: "ShortQuestion",
-  props:['title','index'],
+  props:["title","index"],
   data() {
     return {
       textarea: "",
     };
+  },
+  methods: {
+    onInput(value) {
+      console.log(this.title, "title");
+      console.log(moment().format("YYYY-MM-DD HH:mm"), "time");
+      console.log(value, "input");
+      console.log("output event");
+    },
   },
 };
 </script>
 
 <style lang="less" scoped>
 .container {
-  margin: 0 auto;
+  margin-left: 100px;
   border: 1px solid black;
-  width: 50%;
+  width: 60%;
   background-color: #bee5eb;
   text-align: left;
   padding: 20px;
