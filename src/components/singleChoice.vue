@@ -37,10 +37,7 @@ export default {
   },
   methods: {
     onInput(value) {
-      console.log(this.title,'title');
-      console.log(moment().format('YYYY-MM-DD HH:mm'), "time");
-      console.log(value, "option");
-      console.log('input event');
+      console.log('Question',this.index,',Jeffrey',moment().format("YYYY-MM-DD HH:mm"),'select',value);
     },
   },
 };

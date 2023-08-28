@@ -33,6 +33,14 @@
       <el-form-item v-for="item in quesList.slice(10)" :key="item.id">
         <ShortQuestion :title="item.title" :index="item.id"></ShortQuestion>
       </el-form-item>
+      <el-form-item label="label"> </el-form-item>
+      <el-button
+          class="submit"
+          type="primary"
+          native-type="submit"
+          @click="onSubmit"
+      >Submit</el-button
+      >
     </el-form>
     <!-- <Nav></Nav> -->
   </div>
@@ -64,16 +72,21 @@ export default {
     };
   },
   mounted() {
-    // console.log(ques, "ques===");
-    // api.reqQues().then((v) => {
-    //   console.log(v.data,'data==============');
-    //   this.quesList = v.data;
-    // });
+    window.addEventListener("scroll", this.onScroll);
+    const startTime = moment().format("YYYY-MM-DD HH:mm");
+    console.log('Jeffrey',startTime, "Start to answer");
+    const userInfo = {
+      userName: "Jeffrey",
+    };
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
   },
   methods: {
     onScroll() {
-      console.log(moment().format('YYYY-MM-DD HH:mm'),'time');
-      console.log("scroll event");
+      console.log('Jeffrey',moment().format("YYYY-MM-DD HH:mm"), "scroll event fired");
+    },
+    onSubmit() {
+      // const userInfo =JSON.parse(localStorage.getItem("userInfo"));
+      console.log('Jeffrey',moment().format("YYYY-MM-DD HH:mm"),'Submitted！');
     },
   },
 };
@@ -128,6 +141,9 @@ export default {
       border: 1px solid #cad0d7;
       padding: 8px;
     }
+  }
+  .submit {
+    margin-left: 40%;
   }
 }
 </style>

@@ -30,11 +30,8 @@ export default {
     };
   },
   methods: {
-    onInput(value) {
-      console.log(this.title, "title");
-      console.log(moment().format("YYYY-MM-DD HH:mm"), "time");
-      console.log(value, "input");
-      console.log("output event");
+    onInput() {
+      console.log(`Question${this.index}，Jeffrey${moment().format("YYYY-MM-DD HH:mm")}is texting.`);
     },
   },
 };
