@@ -11,6 +11,16 @@
             label="Answer:"
             placeholder="Please input the answer"
             v-model="textarea"
+            :disabled="isSubmit"
+        >
+        </el-input>
+        <el-input
+            @input="onInput"
+            :value="answer"
+            type="textarea"
+            disabled="true"
+            label="Answer"
+            v-show="isSubmit"
         >
         </el-input>
       </div>
@@ -23,16 +33,20 @@ import moment from "moment";
 
 export default {
   name: "ShortQuestion",
-  props:["title","index"],
+  props: ["title", "index", "isSubmit", "answer"],
   data() {
     return {
       textarea: "",
     };
   },
   methods: {
+    $store: undefined,
     onInput() {
-      console.log(`Question${this.index}，Jeffrey${moment().format("YYYY-MM-DD HH:mm")}is texting.`);
-    },
+      console.log(
+          `Question${this.index}，Jeffrey${moment().format("YYYY-MM-DD HH:mm")}is texting.`);
+      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm"));
+      this.$store.commit("METHODS", `Question${this.index}，is texting`);
+      },
   },
 };
 </script>
@@ -46,6 +60,7 @@ export default {
   text-align: left;
   padding: 20px;
   position: relative;
+
   .left {
     position: absolute;
     left: -100px;
@@ -54,6 +69,7 @@ export default {
     border: 1px solid #cad0d7;
     padding: 8px;
   }
+
   .question {
     font-weight: bolder;
     color: #052025;
@@ -61,6 +77,7 @@ export default {
     font-size: 16px;
     margin-bottom: 24px;
   }
+
   .top {
     font-style: 16px;
     font-weight: 400;

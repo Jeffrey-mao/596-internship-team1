@@ -5,7 +5,8 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "02",
@@ -13,7 +14,8 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "03",
@@ -21,7 +23,8 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "04",
@@ -29,7 +32,8 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "05",
@@ -37,7 +41,8 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "06",
@@ -45,7 +50,8 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "07",
@@ -53,7 +59,8 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "08",
@@ -61,7 +68,8 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "09",
@@ -69,7 +77,8 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "10",
@@ -77,74 +86,92 @@
     "a": "The file has changed and needs to be committe",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
-    "d": "The file contains changes that do not need to be committed"
+    "d": "The file contains changes that do not need to be committed",
+    "answer":"a"
   },
   {
     "id": "11",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "12",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "13",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "14",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "15",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "16",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "17",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "18",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "19",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "20",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "21",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "22",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "23",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "24",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "25",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "26",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   },
   {
     "id": "27",
-    "title": "nums = list(range(10))print(nums[0: 5])"
+    "title": "nums = list(range(10))print(nums[0: 5])",
+    "answer":"a"
   }
 ]
