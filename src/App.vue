@@ -1,149 +1,33 @@
 <template>
-    <div id="app" @scroll="onScroll">
-      <div class="rightCon">
-        <div class="title">Quiz navigation</div>
-        <div class="right">
-          <Nav
-              v-for="item in quesList"
-              :key="item.id"
-              :index="item.id"
-          ></Nav>
-        </div>
-      </div>
-    <el-form ref="form" :model="form" label-width="80px">
-      <div class="section">
-        Section A: Single Choice—choose the best answer (2 marks each)
-        <div class="left">Information</div>
-      </div>
-      <el-form-item v-for="item in quesList.slice(0, 10)" :key="item.id">
-        <SingleChoice
-            :title="item.title"
-            :aOption="item.a"
-            :bOption="item.b"
-            :cOption="item.c"
-            :dOption="item.d"
-            :index="item.id"
-        ></SingleChoice>
-      </el-form-item>
-      <div class="section">
-        Section B: Evaluate Code—What is the output message of the follow code
-        fragments? (3 marks each)
-        <div class="left">Information</div>
-      </div>
-      <el-form-item v-for="item in quesList.slice(10)" :key="item.id">
-        <ShortQuestion :title="item.title" :index="item.id"></ShortQuestion>
-      </el-form-item>
-      <el-form-item label="label"> </el-form-item>
-      <el-button
-          class="submit"
-          type="primary"
-          native-type="submit"
-          @click="onSubmit"
-      >Submit</el-button
-      >
-    </el-form>
-    <!-- <Nav></Nav> -->
-  </div>
+    <div id="app">
+      <router-view></router-view>
+    </div>
 </template>
 
 <script>
 
 
-import SingleChoice from "@/components/singleChoice.vue";
-import ShortQuestion from "@/components/shortQuestion.vue";
-import Nav from "@/components/nav.vue";
-import ques from "./mock/ques.json";
-import moment from 'moment';
+// import Home from "./pages/Home.vue";
 
 
 export default {
   name: "App",
   components: {
-    // eslint-disable-next-line vue/no-unused-components
-    SingleChoice,
-    // eslint-disable-next-line vue/no-unused-components
-    ShortQuestion,
-    // eslint-disable-next-line vue/no-unused-components
-    Nav,
+//Home
   },
   data() {
-    return {
-      quesList: ques,
-    };
-  },
-  mounted() {
-    window.addEventListener("scroll", this.onScroll);
-    const startTime = moment().format("YYYY-MM-DD HH:mm");
-    console.log('Jeffrey',startTime, "Start to answer");
-    const userInfo = {
-      userName: "Jeffrey",
-    };
-    localStorage.setItem("userInfo", JSON.stringify(userInfo));
-  },
-  methods: {
-    onScroll() {
-      console.log('Jeffrey',moment().format("YYYY-MM-DD HH:mm"), "scroll event fired");
-    },
-    onSubmit() {
-      // const userInfo =JSON.parse(localStorage.getItem("userInfo"));
-      console.log('Jeffrey',moment().format("YYYY-MM-DD HH:mm"),'Submitted！');
-    },
+    return {};
   },
 };
 </script>
 
 <style lang="less" scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 60px;
-  position: relative;
-  .rightCon {
-    position: absolute;
-    z-index: 1000;
-    border: 1px black solid;
-    right: 50px;
-    width: 325px;
-    height: 230px;
-    padding: 16px;
-    .title {
-      font-size: 16px;
-      font-weight: bolder;
-      margin-bottom: 10px;
-    }
-    .right {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-  .section {
-    margin-left: 177px;
-    border: 1px solid black;
-    width: 867px;
-    background-color: #bee5eb;
-    text-align: left;
-    padding: 20px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: bolder;
-    position: relative;
-    margin-left:421px;
-    .left {
-      position: absolute;
-      left: -100px;
-      width: 75px;
-      font-weight: normal;
-      font-size: 16px;
-      top: 0;
-      background-color: #f8f9fa;
-      border: 1px solid #cad0d7;
-      padding: 8px;
-    }
-  }
-  .submit {
-    margin-left: 40%;
-  }
+  // font-family: Avenir, Helvetica, Arial, sans-serif;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+  // color: #2c3e50;
+  // margin-top: 60px;
+  height: 100vh;
 }
 </style>
