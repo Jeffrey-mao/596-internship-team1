@@ -1,28 +1,48 @@
 <template>
   <div>
     <div class="container" :id="`nav${index}`">
-      <div class="question">ques:{{ question }}</div>
       <div class="left">Question {{ index }}</div>
+      <div class="question">ques:{{ title }}</div>
       <div class="top">Select One:</div>
       <div class="option">
-        <el-radio-group v-model="radio" @input="onInput">
+        <el-checkbox-group v-model="checkList" @change=onChange>
           <div>
-            <i class="el-icon-check" v-show="answer === 'a' && isSubmit"></i>
-            <el-radio label="a" :disabled="isSubmit">a. {{ aOption }}</el-radio>
+            <i
+                class="el-icon-check"
+                v-show="answer.indexOf('a') != -1 && isSubmit"
+            ></i>
+            <el-checkbox label="a" :disabled="isSubmit"
+            >a. {{ aOption }}</el-checkbox
+            >
           </div>
           <div>
-            <i class="el-icon-check" v-show="answer === 'b' && isSubmit"></i>
-            <el-radio label="b" :disabled="isSubmit">b. {{ bOption }}</el-radio>
+            <i
+                class="el-icon-check"
+                v-show="answer.indexOf('b') != -1 && isSubmit"
+            ></i>
+            <el-checkbox label="b" :disabled="isSubmit"
+            >b. {{ bOption }}</el-checkbox
+            >
           </div>
           <div>
-            <i class="el-icon-check" v-show="answer === 'c' && isSubmit"></i>
-            <el-radio label="c" :disabled="isSubmit">c. {{ cOption }}</el-radio>
+            <i
+                class="el-icon-check"
+                v-show="answer.indexOf('c') != -1 && isSubmit"
+            ></i>
+            <el-checkbox label="c" :disabled="isSubmit"
+            >c. {{ cOption }}</el-checkbox
+            >
           </div>
           <div>
-            <i class="el-icon-check" v-show="answer === 'd' && isSubmit"></i>
-            <el-radio label="d" :disabled="isSubmit">d. {{ dOption }}</el-radio>
+            <i
+                class="el-icon-check"
+                v-show="answer.indexOf('d') != -1 && isSubmit"
+            ></i>
+            <el-checkbox label="d" :disabled="isSubmit"
+            >d. {{ dOption }}</el-checkbox
+            >
           </div>
-        </el-radio-group>
+        </el-checkbox-group>
       </div>
     </div>
   </div>
@@ -30,9 +50,8 @@
 
 <script>
 import moment from "moment";
-
 export default {
-  name: "SingleChoice",
+  name: "RadioSelect",
   props: [
     "title",
     "aOption",
@@ -45,18 +64,18 @@ export default {
   ],
   data() {
     return {
-      radio: 0,
+      checkList: [],
     };
   },
   methods: {
-    $store: undefined,
-    onInput(value) {
-      console.log('Question', this.index, ',Jeffrey', moment().format("YYYY-MM-DD HH:mm:ss"), 'select', value);
+    onChange(value) {
+      value=value.join('')
       this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
-      this.$store.commit("METHODS", `Question${this.index}，select${value}`);
+      this.$store.commit("METHODS", `Question${this.index}，Select${value}`);
     },
   },
   mounted() {
+    console.log(this.answer,'Jeffrey');
   },
 };
 </script>
@@ -70,11 +89,9 @@ export default {
   text-align: left;
   padding: 20px;
   position: relative;
-
   .el-icon-check {
     font-size: 16px;
   }
-
   .left {
     position: absolute;
     left: -100px;
@@ -83,7 +100,6 @@ export default {
     border: 1px solid #cad0d7;
     padding: 8px;
   }
-
   .question {
     font-weight: bolder;
     color: #052025;
@@ -91,13 +107,11 @@ export default {
     font-size: 16px;
     margin-bottom: 24px;
   }
-
   .top {
     font-style: 16px;
     font-weight: 400;
     line-height: 1.5;
   }
-
   .option div {
     margin-bottom: 8px;
     margin-left: 5px;

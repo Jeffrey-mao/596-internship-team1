@@ -15,7 +15,8 @@
         Section A: Single Choice—choose the best answer (2 marks each)
         <div class="left">Information</div>
       </div>
-      <el-form-item v-for="item in quesList.slice(0, 10)" :key="item.id">
+      <!-- single choice -->
+      <el-form-item v-for="item in quesList.slice(0,5)" :key="item.id">
         <SingleChoice
             :title="item.title"
             :isSubmit="isSubmit"
@@ -27,12 +28,35 @@
             :answer="item.answer"
         ></SingleChoice>
       </el-form-item>
+      <!-- multiple -->
+      <el-form-item v-for="item in quesList.slice(5, 10)" :key="item.id">
+        <CheckBox
+            :isSubmit="isSubmit"
+            :title="multiple"
+            :index="item.id"
+            :answer="item.answer"
+            :aOption="item.a"
+            :bOption="item.b"
+            :cOption="item.c"
+            :dOption="item.d"
+        ></CheckBox>
+      </el-form-item>
       <div class="section">
         Section B: Evaluate Code—What is the output message of the follow code
         fragments? (3 marks each)
         <div class="left">Information</div>
       </div>
-      <el-form-item v-for="item in quesList.slice(10)" :key="item.id">
+      <!-- True or false -->
+      <el-form-item v-for="item in quesList.slice(10,15)" :key="item.id">
+        <isTrue
+            :isSubmit="isSubmit"
+            :title="item.title"
+            :index="item.id"
+            :answer="item.answer"
+        ></isTrue>
+      </el-form-item>
+      <!-- Short answer -->
+      <el-form-item v-for="item in quesList.slice(15)" :key="item.id">
         <ShortQuestion
             :isSubmit="isSubmit"
             :title="item.title"
@@ -41,18 +65,10 @@
         ></ShortQuestion>
       </el-form-item>
     </el-form>
-    <el-button
-        v-if="!isSubmit"
-        class="submit"
-        type="primary"
-        @click="onSubmit"
+    <el-button class="submit" type="primary" v-if="!isSubmit" @click="onSubmit"
     >Submit
     </el-button>
-    <el-button
-        class="submit"
-        type="primary"
-        v-else
-        @click="onReview"
+    <el-button class="submit" type="primary" v-else @click="onReview"
     >review</el-button
     >
   </div>
@@ -66,6 +82,8 @@ import ShortQuestion from "../components/shortQuestion.vue";
 import Nav from "../components/nav.vue";
 import ques from "../mock/ques.json";
 import moment from 'moment';
+import CheckBox from "../components/checkBox.vue";
+import IsTrue from "../components/isTrue.vue";
 
 
 export default {
@@ -77,22 +95,26 @@ export default {
     ShortQuestion,
     // eslint-disable-next-line vue/no-unused-components
     Nav,
+    CheckBox,
+    IsTrue,
   },
   data() {
     return {
       quesList: ques,
       isSubmit: false,
+      chaTime: 0,
+      startTime: 0,
     };
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
-    const startTime = moment().format("YYYY-MM-DD HH:mm");
-    console.log('Jeffrey', startTime, "Start to answer");
+    this.startTime = moment().format("YYYY-MM-DD HH:mm:ss");
+    console.log("Jeffrey", this.startTime, "Start to answer");
     const userInfo = {
       userName: "Jeffrey",
     };
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
-    this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm"));
+    this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
     this.$store.commit("METHODS", "Start！");
   },
   methods: {
@@ -105,10 +127,16 @@ export default {
       this.$store.commit("METHODS", "Scroll event");
     },
     onSubmit() {
+      const endTime = moment().format("YYYY-MM-DD HH:mm:ss");
+      const chaTime = moment(endTime).diff(moment(this.startTime), "seconds");
+      console.log(this.startTime, "star==");
+      console.log(chaTime, "cha=============");
+      window.chaTime = chaTime;
+
       // const userInfo =JSON.parse(localStorage.getItem("userInfo"));
-      console.log("Jeffrey", moment().format("YYYY-MM-DD HH:mm"), "Submitted！");
+      console.log("Jeffrey", moment().format("YYYY-MM-DD HH:mm:ss"), "Submitted！");
       this.$store.commit("METHODS", "Submitted！");
-      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm"));
+      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
       this.isSubmit = true;
     },
     onReview() {

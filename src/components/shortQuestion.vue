@@ -43,8 +43,8 @@ export default {
     $store: undefined,
     onInput() {
       console.log(
-          `Question${this.index}，Jeffrey${moment().format("YYYY-MM-DD HH:mm")}is texting.`);
-      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm"));
+          `Question${this.index}，Jeffrey${moment().format("YYYY-MM-DD HH:mm:ss")}is texting.`);
+      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
       this.$store.commit("METHODS", `Question${this.index}，is texting`);
       },
   },

@@ -51,7 +51,7 @@
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
-    "answer":"a"
+    "answer":"ab"
   },
   {
     "id": "07",
@@ -60,7 +60,7 @@
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
-    "answer":"a"
+    "answer":"ac"
   },
   {
     "id": "08",
@@ -69,7 +69,7 @@
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
-    "answer":"a"
+    "answer":"abcd"
   },
   {
     "id": "09",
@@ -78,7 +78,7 @@
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
-    "answer":"a"
+    "answer":"ab"
   },
   {
     "id": "10",
@@ -87,32 +87,32 @@
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
-    "answer":"a"
+    "answer":"adc"
   },
   {
     "id": "11",
     "title": "nums = list(range(10))print(nums[0: 5])",
-    "answer":"a"
+    "answer":1
   },
   {
     "id": "12",
     "title": "nums = list(range(10))print(nums[0: 5])",
-    "answer":"a"
+    "answer":1
   },
   {
     "id": "13",
     "title": "nums = list(range(10))print(nums[0: 5])",
-    "answer":"a"
+    "answer":1
   },
   {
     "id": "14",
     "title": "nums = list(range(10))print(nums[0: 5])",
-    "answer":"a"
+    "answer":1
   },
   {
     "id": "15",
     "title": "nums = list(range(10))print(nums[0: 5])",
-    "answer":"a"
+    "answer":1
   },
   {
     "id": "16",

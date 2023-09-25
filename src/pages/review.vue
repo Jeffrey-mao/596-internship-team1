@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>review</h1>
+    <h2>Total use:{{ time }}second</h2>
     <div
         class="review"
         v-for="(item, index) in $store.state.home.timeArr"
@@ -15,11 +16,20 @@
 </template>
 
 <script>
-// import { mapState } from "vuex";
+// eslint-disable-next-line
+ import { mapState } from "vuex";
 export default {
   name: "myReview",
-  data() {},
-  mounted() {},
+  data() {
+    return {
+      time: 0,
+    };
+  },
+  mounted() {
+    console.log("Total use：", window.chaTime);
+    this.time = window.chaTime;
+    console.log(this.time);
+  },
 };
 </script>
 
