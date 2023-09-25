@@ -13,7 +13,7 @@
     <el-form label-width="80px">
       <div class="section">
         Section A: Single Choice—choose the best answer (2 marks each)
-        <div class="left">Information</div>
+        <div class="left" @mouseover="handleMouseOver">Information</div>
       </div>
       <!-- single choice -->
       <el-form-item v-for="item in quesList.slice(0,5)" :key="item.id">
@@ -44,7 +44,7 @@
       <div class="section">
         Section B: Evaluate Code—What is the output message of the follow code
         fragments? (3 marks each)
-        <div class="left">Information</div>
+        <div class="left" @mouseover="handleMouseOver">Information</div>
       </div>
       <!-- True or false -->
       <el-form-item v-for="item in quesList.slice(10,15)" :key="item.id">
@@ -118,6 +118,9 @@ export default {
     this.$store.commit("METHODS", "Start！");
   },
   methods: {
+    handleMouseOver() {
+      console.log('Mouse moved to the "Information"');  // 在控制台输出日志
+    },
     onScroll() {
       const path = window.location.href.split("#")[1];
       if (path === "/review") {
@@ -177,7 +180,7 @@ export default {
   }
 
   .section {
-    margin-left: 177px;
+    margin-left: 170px;
     border: 1px solid black;
     width: 867px;
     background-color: #bee5eb;
@@ -187,7 +190,7 @@ export default {
     font-size: 16px;
     font-weight: bolder;
     position: relative;
-    margin-left: 421px;
+    margin-left: 180px;
 
     .left {
       position: absolute;
