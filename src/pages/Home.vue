@@ -29,6 +29,10 @@
         ></SingleChoice>
       </el-form-item>
       <!-- multiple -->
+      <div class="section">
+        Section B: Multiple Choice—choose over one answers (2 marks each)
+        <div class="left" @mouseover="handleMouseOver">Information</div>
+      </div>
       <el-form-item v-for="item in quesList.slice(5, 10)" :key="item.id">
         <CheckBox
             :isSubmit="isSubmit"
@@ -42,8 +46,7 @@
         ></CheckBox>
       </el-form-item>
       <div class="section">
-        Section B: Evaluate Code—What is the output message of the follow code
-        fragments? (3 marks each)
+        Section C: True or False—Select true or false (3 marks each)
         <div class="left" @mouseover="handleMouseOver">Information</div>
       </div>
       <!-- True or false -->
@@ -56,6 +59,11 @@
         ></isTrue>
       </el-form-item>
       <!-- Short answer -->
+      <div class="section">
+        Section D: Evaluate Code—What is the output message of the follow code
+        fragments? (3 marks each)
+        <div class="left" @mouseover="handleMouseOver">Information</div>
+      </div>
       <el-form-item v-for="item in quesList.slice(15)" :key="item.id">
         <ShortQuestion
             :isSubmit="isSubmit"
