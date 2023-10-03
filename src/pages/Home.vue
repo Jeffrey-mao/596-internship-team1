@@ -16,7 +16,7 @@
         <div class="left" @mouseover="handleMouseOver">Information</div>
       </div>
       <!-- single choice -->
-      <el-form-item v-for="item in quesList.slice(0,5)" :key="item.id">
+      <el-form-item v-for="item in quesList.slice(0, 5)" :key="item.id">
         <SingleChoice
             :title="item.title"
             :isSubmit="isSubmit"
@@ -50,7 +50,7 @@
         <div class="left" @mouseover="handleMouseOver">Information</div>
       </div>
       <!-- True or false -->
-      <el-form-item v-for="item in quesList.slice(10,15)" :key="item.id">
+      <el-form-item v-for="item in quesList.slice(10, 15)" :key="item.id">
         <isTrue
             :isSubmit="isSubmit"
             :title="item.title"
@@ -90,6 +90,7 @@ import ShortQuestion from "../components/shortQuestion.vue";
 import Nav from "../components/nav.vue";
 import ques from "../mock/ques.json";
 import moment from 'moment';
+import {throttle} from "lodash";
 import CheckBox from "../components/checkBox.vue";
 import IsTrue from "../components/isTrue.vue";
 
@@ -115,7 +116,9 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("scroll",throttle(this.onScroll,10000));
+    window.addEventListener("mousemove",throttle(this.move,10000));
+
     this.startTime = moment().format("YYYY-MM-DD HH:mm:ss");
     console.log("Jeffrey", this.startTime, "Start to answer");
     const userInfo = {
@@ -127,15 +130,26 @@ export default {
   },
   methods: {
     handleMouseOver() {
-      console.log('Mouse moved to the "Information"');  // 在控制台输出日志
+      console.log('Mouse moved to the "Information"');  //
     },
     onScroll() {
       const path = window.location.href.split("#")[1];
       if (path === "/review") {
         return;
       }
-      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm"));
+      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
       this.$store.commit("METHODS", "Scroll event");
+    },
+    move(e){
+      const path = window.location.href.split("#")[1]
+      if (path === "/review") {
+        return;
+      }
+      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
+      this.$store.commit("METHODS", "mouse moved");
+
+      console.log(e.clientX,'x================');
+      console.log(e.clientY,'Y================');
     },
     onSubmit() {
       const endTime = moment().format("YYYY-MM-DD HH:mm:ss");
