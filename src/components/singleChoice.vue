@@ -49,7 +49,6 @@ export default {
     };
   },
   methods: {
-    $store: undefined,
     onInput(value) {
       console.log('Question', this.index, ',Jeffrey', moment().format("YYYY-MM-DD HH:mm:ss"), 'select', value);
       this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));

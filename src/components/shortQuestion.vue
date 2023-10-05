@@ -30,6 +30,8 @@
 
 <script>
 import moment from "moment";
+//import { debounce } from "lodash";
+
 
 export default {
   name: "ShortQuestion",
@@ -37,15 +39,22 @@ export default {
   data() {
     return {
       textarea: "",
+      inputData:false,
+      inputValue:""
     };
   },
   methods: {
-    $store: undefined,
-    onInput() {
-      console.log(
-          `Question${this.index}，Jeffrey${moment().format("YYYY-MM-DD HH:mm:ss")}is texting.`);
-      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
-      this.$store.commit("METHODS", `Question${this.index}，is texting`);
+    onInput(value) {
+      this.inputValue=value;
+      if (this.inputData) {
+        return;
+      }
+      this.inputData=true
+      setTimeout(() => {
+        this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
+        this.$store.commit("METHODS", `Question${this.index}，is texting`);
+        this.inputData=false
+      }, 1000);
       },
   },
 };
