@@ -16,7 +16,7 @@
         <div class="left" @mouseover="handleMouseOver">Information</div>
       </div>
       <!-- single choice -->
-      <el-form-item v-for="item in quesList.slice(0, 5)" :key="item.id">
+      <el-form-item v-for="item in quesList.slice(0, 5)" :key="item.id" @click.native="handleClick($event, item.id)">
         <SingleChoice
             :title="item.title"
             :isSubmit="isSubmit"
@@ -33,7 +33,7 @@
         Section B: Multiple Choice—choose over one answers (2 marks each)
         <div class="left" @mouseover="handleMouseOver">Information</div>
       </div>
-      <el-form-item v-for="item in quesList.slice(5, 10)" :key="item.id">
+      <el-form-item v-for="item in quesList.slice(5, 10)" :key="item.id" @click.native="handleClick($event, item.id)">
         <CheckBox
             :isSubmit="isSubmit"
             :title="multiple"
@@ -50,7 +50,7 @@
         <div class="left" @mouseover="handleMouseOver">Information</div>
       </div>
       <!-- True or false -->
-      <el-form-item v-for="item in quesList.slice(10, 15)" :key="item.id">
+      <el-form-item v-for="item in quesList.slice(10, 15)" :key="item.id" @click.native="handleClick($event, item.id)">
         <isTrue
             :isSubmit="isSubmit"
             :title="item.title"
@@ -64,7 +64,7 @@
         fragments? (3 marks each)
         <div class="left" @mouseover="handleMouseOver">Information</div>
       </div>
-      <el-form-item v-for="item in quesList.slice(15)" :key="item.id">
+      <el-form-item v-for="item in quesList.slice(15)" :key="item.id" @click.native="handleClick($event, item.id)">
         <ShortQuestion
             :isSubmit="isSubmit"
             :title="item.title"
@@ -129,6 +129,16 @@ export default {
     this.$store.commit("METHODS", "Start！");
   },
   methods: {
+    handleClick(event, questionId) {
+      const path = window.location.href.split("#")[1]
+      if (path === "/review") {
+        return;
+      }
+      this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
+      this.$store.commit("METHODS", "Click event");
+      console.log(`Question ${questionId} was clicked.`);
+
+    },
     handleMouseOver() {
       console.log('Mouse moved to the "Information"');  //
     },
@@ -146,7 +156,7 @@ export default {
         return;
       }
       this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
-      this.$store.commit("METHODS", "mouse moved");
+      this.$store.commit("METHODS", "Mouse moved");
 
       console.log(e.clientX,'x================');
       console.log(e.clientY,'Y================');
