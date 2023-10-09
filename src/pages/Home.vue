@@ -13,10 +13,10 @@
     <el-form label-width="80px">
       <div class="section">
         Section A: Single Choice—choose the best answer (2 marks each)
-        <div class="left" @mouseover="handleMouseOver">Information</div>
+        <div class="left" >Information</div>
       </div>
       <!-- single choice -->
-      <el-form-item v-for="item in quesList.slice(0, 5)" :key="item.id" @click.native="handleClick($event, item.id)">
+      <el-form-item v-for="item in quesList.slice(0, 5)" :key="item.id" @mouseover.native="handleMouseOver(item.id)" @click.native="handleClick($event, item.id)">
         <SingleChoice
             :title="item.title"
             :isSubmit="isSubmit"
@@ -31,9 +31,9 @@
       <!-- multiple -->
       <div class="section">
         Section B: Multiple Choice—choose over one answers (2 marks each)
-        <div class="left" @mouseover="handleMouseOver">Information</div>
+        <div class="left" >Information</div>
       </div>
-      <el-form-item v-for="item in quesList.slice(5, 10)" :key="item.id" @click.native="handleClick($event, item.id)">
+      <el-form-item v-for="item in quesList.slice(5, 10)" :key="item.id" @mouseover.native="handleMouseOver(item.id)" @click.native="handleClick($event, item.id)">
         <CheckBox
             :isSubmit="isSubmit"
             :title="multiple"
@@ -47,10 +47,10 @@
       </el-form-item>
       <div class="section">
         Section C: True or False—Select true or false (3 marks each)
-        <div class="left" @mouseover="handleMouseOver">Information</div>
+        <div class="left" >Information</div>
       </div>
       <!-- True or false -->
-      <el-form-item v-for="item in quesList.slice(10, 15)" :key="item.id" @click.native="handleClick($event, item.id)">
+      <el-form-item v-for="item in quesList.slice(10, 15)" :key="item.id" @mouseover.native="handleMouseOver(item.id)" @click.native="handleClick($event, item.id)">
         <isTrue
             :isSubmit="isSubmit"
             :title="item.title"
@@ -62,9 +62,9 @@
       <div class="section">
         Section D: Evaluate Code—What is the output message of the follow code
         fragments? (3 marks each)
-        <div class="left" @mouseover="handleMouseOver">Information</div>
+        <div class="left" >Information</div>
       </div>
-      <el-form-item v-for="item in quesList.slice(15)" :key="item.id" @click.native="handleClick($event, item.id)">
+      <el-form-item v-for="item in quesList.slice(15)" :key="item.id" @mouseover.native="handleMouseOver(item.id)" @click.native="handleClick($event, item.id)">
         <ShortQuestion
             :isSubmit="isSubmit"
             :title="item.title"
@@ -117,7 +117,8 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll",throttle(this.onScroll,10000));
-    window.addEventListener("mousemove",throttle(this.move,10000));
+    //window.addEventListener("mousemove",throttle(this.move,10000));
+    window.addEventListener("mousemove",throttle(this.handleMouseOver,5000));
 
     this.startTime = moment().format("YYYY-MM-DD HH:mm:ss");
     console.log("Jeffrey", this.startTime, "Start to answer");
@@ -129,18 +130,25 @@ export default {
     this.$store.commit("METHODS", "Start！");
   },
   methods: {
+    handleMouseOver(questionId) {
+      const path = window.location.href.split("#")[1];
+      if (path === "/review") {
+        return
+      }
+        console.log(`Mouse is over Question ${questionId}`);
+        this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
+        this.$store.commit("METHODS", `Mouse is over Question ${questionId}`);
+
+    },
     handleClick(event, questionId) {
       const path = window.location.href.split("#")[1]
       if (path === "/review") {
         return;
       }
       this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
-      this.$store.commit("METHODS", "Click event");
+      this.$store.commit("METHODS", `Click event on question ${questionId}`);
       console.log(`Question ${questionId} was clicked.`);
 
-    },
-    handleMouseOver() {
-      console.log('Mouse moved to the "Information"');  //
     },
     onScroll() {
       const path = window.location.href.split("#")[1];
@@ -150,7 +158,7 @@ export default {
       this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
       this.$store.commit("METHODS", "Scroll event");
     },
-    move(e){
+    /*move(e){
       const path = window.location.href.split("#")[1]
       if (path === "/review") {
         return;
@@ -158,14 +166,14 @@ export default {
       this.$store.commit("TIME", moment().format("YYYY-MM-DD HH:mm:ss"));
       this.$store.commit("METHODS", "Mouse moved");
 
-      console.log(e.clientX,'x================');
-      console.log(e.clientY,'Y================');
-    },
+      console.log('x=',e.clientX);
+      console.log('Y=',e.clientY);
+    },*/
     onSubmit() {
       const endTime = moment().format("YYYY-MM-DD HH:mm:ss");
       const chaTime = moment(endTime).diff(moment(this.startTime), "seconds");
-      console.log(this.startTime, "star==");
-      console.log(chaTime, "cha=============");
+      console.log("star=",this.startTime);
+      console.log("cha=",chaTime);
       window.chaTime = chaTime;
 
       // const userInfo =JSON.parse(localStorage.getItem("userInfo"));
