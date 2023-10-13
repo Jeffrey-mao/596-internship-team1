@@ -118,7 +118,7 @@ export default {
   mounted() {
     window.addEventListener("scroll",throttle(this.onScroll,10000));
     //window.addEventListener("mousemove",throttle(this.move,10000));
-    window.addEventListener("mousemove",throttle(this.handleMouseOver,5000));
+    window.addEventListener("mousemove",throttle(this.handleMouseOver,10000));
 
     this.startTime = moment().format("YYYY-MM-DD HH:mm:ss");
     console.log("Jeffrey", this.startTime, "Start to answer");

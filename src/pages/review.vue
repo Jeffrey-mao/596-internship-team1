@@ -17,7 +17,7 @@
 
 <script>
 // eslint-disable-next-line
- import { mapState } from "vuex";
+import { mapState } from "vuex"
 export default {
   name: "myReview",
   data() {

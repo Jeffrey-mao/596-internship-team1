@@ -2,7 +2,7 @@
   {
     "id": "01",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
@@ -11,7 +11,7 @@
   {
     "id": "02",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
@@ -20,7 +20,7 @@
   {
     "id": "03",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
@@ -29,7 +29,7 @@
   {
     "id": "04",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
@@ -38,7 +38,7 @@
   {
     "id": "05",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
@@ -47,16 +47,16 @@
   {
     "id": "06",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
     "answer":"ab"
   },
-  {
+  {d
     "id": "07",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
@@ -65,7 +65,7 @@
   {
     "id": "08",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
@@ -74,7 +74,7 @@
   {
     "id": "09",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
@@ -83,7 +83,7 @@
   {
     "id": "10",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
-    "a": "The file has changed and needs to be committe",
+    "a": "The file has changed and needs to be committed",
     "b": "The file has changed, staged and is ready to be committed",
     "c": "Changes to the file caused the last commit to fail",
     "d": "The file contains changes that do not need to be committed",
