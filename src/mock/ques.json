@@ -53,7 +53,7 @@
     "d": "The file contains changes that do not need to be committed",
     "answer":"ab"
   },
-  {d
+  {
     "id": "07",
     "title": "When running ‘git status’ files listed with a red text colour mean that:",
     "a": "The file has changed and needs to be committed",
