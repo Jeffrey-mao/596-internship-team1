@@ -1,22 +1,24 @@
-# 596-internship-team1
-This repository is for internship team 1 
+# Exam Tracking System
 
-<h4>There are some key points we've decided:</h4>
-1. We decided to use VUE2 and mock.js to develop this front-end program <br>
-2. We will develop two pages, One is a quiz page like  quiz-page on Moodle and has the same function as well. The other one is the report page, it looks
-   like the same as your picture. We'll develop the function as follows:<br>
-   1)Log-need to track users step to action<br>
-   2)It can export as PDF fomat<br>
-   ***3)Visually track user behaviour*** Just do our best if time is enough.<br>
-3. We'll set up our environment in these two days, and spend a week learning about VUE2 and mock.js as well as start coding from week 3.<br>
+## Project Overview
 
-<h3> The above is only the initial plan and it could be changed when we are pushing the whole process </h3><br>
+This is an exam tracking system designed for tracking user activities during an exam. It is built using Vue 2, and incorporates Element UI, Mock.js, and Vuex. The system has features for answer validation and tracking various user actions like clicks, typing events, and mouse movements.
 
-Install webpack                npm install -g webpack webpack-cli <br>
-Install Vue Cli                npm install -g @vue/cli<br>
-Install router(Vue2)           npm install --save vue-router<br>
-Install router(Vue3)           npm install --save vue-router@4<br>
-Install axios                  npm install --save axios<br>
-Install querystring            npm install --save query-string<br>
-Install element-ui             npm install --save element-plus<br>
-Install mock.js                npm install mockjs
+## Features
+
+- **Answer Validation**: Validates user's answers.
+- **Activity Tracking**: Records times of various user activities such as clicking, typing, and mouse movements.
+- **Mock Data**: Uses Mock.js for simulating backend responses.
+
+## Prerequisites
+
+- Node.js
+- npm or yarn
+
+## Installation
+
+npm install
+
+## Run
+
+npm run serve
